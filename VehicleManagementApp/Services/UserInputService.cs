@@ -1,6 +1,6 @@
-﻿using VehicleManagementApp.Interfaces;
+﻿using VehicleManagement.Interfaces;
 
-namespace VehicleManagementApp.Services
+namespace VehicleManagement.Services
 {
     public  class UserInputService : IUserInputService
     {

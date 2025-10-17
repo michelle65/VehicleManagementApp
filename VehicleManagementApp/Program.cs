@@ -1,8 +1,8 @@
-﻿using VehicleManagementApp.Interfaces;
-using VehicleManagementApp.Models;
-using VehicleManagementApp.Seeder;
-using VehicleManagementApp.Services;
-using VehicleManagementApp.Wrappers;
+﻿using VehicleManagement.Interfaces;
+using VehicleManagement.Models;
+using VehicleManagement.Seeder;
+using VehicleManagement.Services;
+using VehicleManagement.Wrappers;
 
 List<Vehicle> vehicles = VehicleSeeder.SeedInitialVehicles();
 

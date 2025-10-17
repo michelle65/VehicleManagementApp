@@ -1,12 +1,12 @@
-﻿using VehicleManagementApp.Interfaces;
+﻿using VehicleManagement.Interfaces;
 
-namespace VehicleManagementApp.Models
+namespace VehicleManagement.Models
 {
     public class Car : Vehicle, IDriveable
     {
         public int NumberOfDoors { get; set; }
 
-        public void Drive()
+        public virtual void Drive()
         {
             Console.WriteLine("The car is driving on the road.");
         }

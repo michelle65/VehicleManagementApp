@@ -1,11 +1,10 @@
-﻿using VehicleManagementApp.Interfaces;
+﻿using VehicleManagement.Interfaces;
 
-namespace VehicleManagementApp.Models
+namespace VehicleManagement.Models
 {
     public class Truck : Vehicle, IDriveable
     {
         public decimal CargoCapacity { get; set; }
-
         public void Drive()
         {
             Console.WriteLine("The truck is driving on city streets.");
@@ -15,5 +14,10 @@ namespace VehicleManagementApp.Models
         {
             return "The truck engine rumbles to life.";
         }
+        public void Refuel()
+        {
+            Console.WriteLine($"The truck is being refueled .");
+        }
+    
     }
 }

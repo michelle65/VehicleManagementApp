@@ -1,6 +1,6 @@
-﻿using VehicleManagementApp.Interfaces;
+﻿using VehicleManagement.Interfaces;
 
-namespace VehicleManagementApp.Models
+namespace VehicleManagement.Models
 {
     public class Motorcycle : Vehicle, IDriveable
     {

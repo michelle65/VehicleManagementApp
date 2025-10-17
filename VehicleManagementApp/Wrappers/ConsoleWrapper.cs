@@ -1,6 +1,6 @@
-﻿using VehicleManagementApp.Interfaces;
+﻿using VehicleManagement.Interfaces;
 
-namespace VehicleManagementApp.Wrappers
+namespace VehicleManagement.Wrappers
 {
     public class ConsoleWrapper:IConsoleWrapper
     {

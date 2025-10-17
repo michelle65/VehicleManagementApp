@@ -1,24 +1,24 @@
-﻿using VehicleManagementApp.Interfaces;
-using VehicleManagementApp.Models;
-using VehicleManagementApp.Wrappers;
+﻿using VehicleManagement.Interfaces;
+using VehicleManagement.Models;
+using VehicleManagement.Wrappers;
 
-namespace VehicleManagementApp.Services
+namespace VehicleManagement.Services
 {
     public class VehicleService : IVehicleService
     {
         private readonly List<Vehicle> _vehicles;
         private readonly IUserInputService _userInputService;
-        IConsoleWrapper console = new ConsoleWrapper();
+        private  IConsoleWrapper _console = new ConsoleWrapper();
 
         public VehicleService(List<Vehicle> vehicles, IUserInputService userInputService)
         {
-           _vehicles = vehicles;
-           _userInputService = userInputService;
+            _vehicles = vehicles;
+            _userInputService = userInputService;
 
         }
         public void AddNewCar()
         {
-            _userInputService.InputVehicleComponents(out string brand, out string model, out int year); 
+            _userInputService.InputVehicleComponents(out string brand, out string model, out int year);
             int numberOfDoors = _userInputService.InputCarComponent();
             _vehicles.Add(new Car { Brand = brand, Model = model, Year = year, NumberOfDoors = numberOfDoors });
         }
@@ -37,11 +37,11 @@ namespace VehicleManagementApp.Services
         }
         public void PrintAllVehicles()
         {
-            console.WriteLine("*** Thank you for using our app ***");
-            console.WriteLine("The cars in the database:");
+            _console.WriteLine("*** Thank you for using our app ***");
+            _console.WriteLine("The cars in the database:");
             foreach (Vehicle vehicle in _vehicles)
             {
-                console.WriteLine(vehicle.Brand + " " + vehicle.Model + " " + vehicle.Year);
+                _console.WriteLine(vehicle.Brand + " " + vehicle.Model + " " + vehicle.Year);
             }
         }
         public void CheckVehicles()
@@ -55,6 +55,6 @@ namespace VehicleManagementApp.Services
                 }
             }
         }
-      
+
     }
 }

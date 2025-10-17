@@ -1,4 +1,4 @@
-﻿namespace VehicleManagementApp.Interfaces
+﻿namespace VehicleManagement.Interfaces
 {
     public interface IUserInputService
     {

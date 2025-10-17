@@ -1,4 +1,4 @@
-﻿namespace VehicleManagementApp.Models
+﻿namespace VehicleManagement.Models
 {
     public abstract class Vehicle
     {
