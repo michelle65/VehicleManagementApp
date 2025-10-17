@@ -9,5 +9,9 @@ namespace VehicleManagement.Models
         {
             return "Driving an electric car...";
         }
+        public override void Drive()
+        {
+            Console.WriteLine("The electric drives safely...");
+        }
     }
 }

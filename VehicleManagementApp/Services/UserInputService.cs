@@ -2,13 +2,10 @@
 
 namespace VehicleManagement.Services
 {
-    public  class UserInputService : IUserInputService
+    public class UserInputService : IUserInputService
     {
         private readonly IConsoleWrapper _console;
-        public UserInputService(IConsoleWrapper console)
-        {
-            _console = console;
-        }
+        public UserInputService(IConsoleWrapper console) => _console = console;
         public void PrintMenu()
         {
             _console.Clear();
@@ -18,6 +15,11 @@ namespace VehicleManagement.Services
             _console.WriteLine("1.Add new car.");
             _console.WriteLine("2.Add new motorcycle.");
             _console.WriteLine("3.Add new truck.");
+            _console.WriteLine("4.Add new electric car.");
+            _console.WriteLine("5.List vehices (with filter)");
+            _console.WriteLine("6.Check vehicles ( with filter)");
+            _console.WriteLine("7.Save to JSON");
+            _console.WriteLine("8.Load to JSON");
         }
         public void InputVehicleComponents(out string brand, out string model, out int year)
         {
@@ -49,6 +51,12 @@ namespace VehicleManagement.Services
             int numberOfDoors = Convert.ToInt32(_console.ReadLine());
             return numberOfDoors;
         }
+        public int InputElectricRange()
+        {
+            _console.WriteLine("Please enter battery range (km):");
+            int batteryRange = Convert.ToInt32(_console.ReadLine());
+            return batteryRange;
+        }
         public void NoValidOption()
         {
             _console.WriteLine("*******************");
@@ -56,5 +64,6 @@ namespace VehicleManagement.Services
             _console.WriteLine("*******************");
 
         }
+
     }
 }

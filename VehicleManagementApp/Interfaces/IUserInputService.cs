@@ -6,6 +6,7 @@
         public void InputVehicleComponents(out string brand, out string model, out int year);
         public int InputTruckComponent();
         public bool InputMotorcycleComponent();
+        public int InputElectricRange();
         public int InputCarComponent();
         public void NoValidOption();
 

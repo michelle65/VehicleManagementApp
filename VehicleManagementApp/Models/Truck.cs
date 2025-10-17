@@ -2,7 +2,7 @@
 
 namespace VehicleManagement.Models
 {
-    public class Truck : Vehicle, IDriveable
+    public class Truck : Vehicle, IDriveable, IRefuelable
     {
         public decimal CargoCapacity { get; set; }
         public void Drive()
@@ -12,11 +12,11 @@ namespace VehicleManagement.Models
 
         public override string StartEngine()
         {
-            return "The truck engine rumbles to life.";
+            return "The truck engine drives on the road.";
         }
         public void Refuel()
         {
-            Console.WriteLine($"The truck is being refueled .");
+            Console.WriteLine($"The truck is being refueled.");
         }
     
     }
