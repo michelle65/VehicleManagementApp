@@ -8,7 +8,7 @@ namespace VehicleManagement.Services
         public UserInputService(IConsoleWrapper console) => _console = console;
         public void PrintMenu()
         {
-            _console.Clear();
+            _console.WriteLine("*******************");
             _console.WriteLine("**** - Welcome to the sample service ! ***");
             _console.WriteLine("Please select an operation.");
             _console.WriteLine("0.Exit program.");
@@ -20,19 +20,24 @@ namespace VehicleManagement.Services
             _console.WriteLine("6.Check vehicles ( with filter)");
             _console.WriteLine("7.Save to JSON");
             _console.WriteLine("8.Load to JSON");
+            _console.WriteLine("*******************");
         }
         public void InputVehicleComponents(out string brand, out string model, out int year)
         {
+            _console.WriteLine("*******************");
             _console.WriteLine("Please enter the brand:");
             brand = _console.ReadLine();
             _console.WriteLine("Please enter the model:");
             model = _console.ReadLine();
             _console.WriteLine("Please enter the year:");
             year = Convert.ToInt32(_console.ReadLine());
+            _console.WriteLine();
         }
 
         public int InputTruckComponent()
         {
+
+            _console.WriteLine("*******************");
             _console.WriteLine("Please enter the cargo capacity:");
             int cargoCapacity = Convert.ToInt32(_console.ReadLine());
             return cargoCapacity;
@@ -40,6 +45,7 @@ namespace VehicleManagement.Services
 
         public bool InputMotorcycleComponent()
         {
+            _console.WriteLine("*******************");
             _console.WriteLine("Has sidecar? (true or false): ");
             bool hasSidecar = Convert.ToBoolean(_console.ReadLine());
             return hasSidecar;
@@ -47,12 +53,14 @@ namespace VehicleManagement.Services
 
         public int InputCarComponent()
         {
+            _console.WriteLine("*******************");
             _console.WriteLine("Please enter number of doors: ");
             int numberOfDoors = Convert.ToInt32(_console.ReadLine());
             return numberOfDoors;
         }
         public int InputElectricRange()
         {
+            _console.WriteLine("*******************");
             _console.WriteLine("Please enter battery range (km):");
             int batteryRange = Convert.ToInt32(_console.ReadLine());
             return batteryRange;
@@ -62,8 +70,6 @@ namespace VehicleManagement.Services
             _console.WriteLine("*******************");
             _console.WriteLine("Invalid option.");
             _console.WriteLine("*******************");
-
         }
-
     }
 }

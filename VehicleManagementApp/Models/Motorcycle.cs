@@ -5,7 +5,7 @@ namespace VehicleManagement.Models
     public class Motorcycle : Vehicle, IDriveable
     {
         public bool HasSidecar { get; set; }
-
+        public Motorcycle() { }
         public void Drive()
         {
             Console.WriteLine("The motorcycle is driving in the park.");
