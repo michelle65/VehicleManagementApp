@@ -10,7 +10,6 @@ namespace VehicleManagement.Repositories
 {
     public class JsonFileVehicleRepository : IVehicleRepository
     {
-        private const string DefaultFileName = "vehicles.json";
         private readonly string _dataFile;
 
         private readonly JsonSerializerOptions _json = new()
@@ -23,7 +22,7 @@ namespace VehicleManagement.Repositories
         {
             var baseDir = string.IsNullOrWhiteSpace(dir) ? ResolveDataDirectory() : dir!;
             Directory.CreateDirectory(baseDir);
-            _dataFile = Path.Combine(baseDir, DefaultFileName);
+            _dataFile = Path.Combine(baseDir, Constants.DefaultFileName);
         }
 
         public List<Vehicle> LoadOrSeed(out string info)
@@ -55,11 +54,11 @@ namespace VehicleManagement.Repositories
 
         private static string ResolveDataDirectory()
         {
-            var env = Environment.GetEnvironmentVariable("VEHICLE_APP_DATA_DIR");
+            var env = Environment.GetEnvironmentVariable(Constants.DataDirEnvVar);
             if (!string.IsNullOrWhiteSpace(env)) return env;
 
             var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            if (!string.IsNullOrEmpty(appData)) return Path.Combine(appData, "VehicleManagementApp");
+            if (!string.IsNullOrEmpty(appData)) return Path.Combine(appData, Constants.AppLocalFolder);
 
             return AppContext.BaseDirectory;
         }
