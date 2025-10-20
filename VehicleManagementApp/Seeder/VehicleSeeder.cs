@@ -1,6 +1,6 @@
-﻿using VehicleManagementApp.Models;
+﻿using VehicleManagement.Models;
 
-namespace VehicleManagementApp.Seeder
+namespace VehicleManagement.Seeder
 {
     public class VehicleSeeder
     {
