@@ -1,6 +1,6 @@
 ﻿using VehicleManagement.Models;
 
-namespace VehicleManagementApp.Helpers
+namespace VehicleManagement.Helpers
 {
     public static class VehicleFormatter
     {

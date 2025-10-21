@@ -1,7 +1,7 @@
 ﻿using VehicleManagement.DTO_s;
 using VehicleManagement.Models;
 
-namespace VehicleManagementApp.Helpers
+namespace VehicleManagement.Helpers
 {
     public static class VehicleMapper
     {

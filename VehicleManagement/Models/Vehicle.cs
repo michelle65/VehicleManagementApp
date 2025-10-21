@@ -13,7 +13,7 @@ namespace VehicleManagement.Models
         public string Model { get; set; }
         public int Year { get; set; }
         protected Vehicle() { }
-        public virtual string  StartEngine()
+        public virtual string StartEngine()
         {
             return "The vehicle engine starts.";
         }

@@ -18,6 +18,6 @@ namespace VehicleManagement.Models
         {
             Console.WriteLine($"The truck is being refueled.");
         }
-    
+
     }
 }
