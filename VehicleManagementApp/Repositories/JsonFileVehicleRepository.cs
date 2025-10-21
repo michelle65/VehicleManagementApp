@@ -10,7 +10,6 @@ namespace VehicleManagement.Repositories
 {
     public class JsonFileVehicleRepository : IVehicleRepository
     {
-        private const string DefaultFileName = "vehicles.json";
         private readonly string _dataFile;
 
         private readonly JsonSerializerOptions _json = new()
