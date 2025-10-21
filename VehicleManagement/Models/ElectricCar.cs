@@ -5,7 +5,6 @@ namespace VehicleManagement.Models
     public class ElectricCar : Car, IDriveable
     {
         public int BatteryRangeKm { get; set; }
-        public ElectricCar() { }
         public override string StartEngine()
         {
             return "Driving an electric car...";

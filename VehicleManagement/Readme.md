@@ -1,4 +1,5 @@
-﻿using Sys🧩 Practice Brief: Vehicle Management Console App
+﻿Practice Brief: Vehicle Management Console App
+
 1️⃣ Overview
 Build a simple Vehicle Management System as a C# console application.
 The system should allow users to create and display different types of vehicles (e.g., Car, Motorcycle, Truck), demonstrating inheritance, polymorphism, and interface usage.

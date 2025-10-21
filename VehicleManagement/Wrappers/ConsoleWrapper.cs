@@ -2,7 +2,7 @@
 
 namespace VehicleManagement.Wrappers
 {
-    public class ConsoleWrapper:IConsoleWrapper
+    public class ConsoleWrapper : IConsoleWrapper
     {
         public void Write(string message)
         {

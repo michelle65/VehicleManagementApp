@@ -1,10 +1,10 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using VehicleManagement.DTO_s;
+using VehicleManagement.Helpers;
 using VehicleManagement.Interfaces;
 using VehicleManagement.Models;
 using VehicleManagement.Seeder;
-using VehicleManagementApp.Helpers;
 
 namespace VehicleManagement.Repositories
 {

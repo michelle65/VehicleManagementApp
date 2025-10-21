@@ -1,7 +1,7 @@
-﻿using VehicleManagement.Interfaces;
+﻿using VehicleManagement.Helpers;
+using VehicleManagement.Interfaces;
 using VehicleManagement.Models;
 using VehicleManagement.Repositories;
-using VehicleManagementApp.Helpers;
 
 namespace VehicleManagement.Services
 {
@@ -86,17 +86,20 @@ namespace VehicleManagement.Services
 
         public void CheckVehicles()
         {
+            _console.WriteLine("*** Vehicle check ***");
             foreach (var v in _vehicles)
             {
-                v.StartEngine();
+                _console.WriteLine(v.StartEngine());
                 if (v is IDriveable d) d.Drive();
             }
+            _console.WriteLine("*** Vehicle checks completed ***");
         }
 
         public void SaveJson()
         {
             _repo.Save(_vehicles);
-            _console.WriteLine("Saved.");
+            _console.WriteLine("Vehicle(s) saved!");
+            _console.WriteLine();
         }
 
         public void LoadJson()
