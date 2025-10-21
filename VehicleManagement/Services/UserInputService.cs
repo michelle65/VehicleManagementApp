@@ -39,7 +39,7 @@ namespace VehicleManagement.Services
 
             _console.WriteLine("*******************");
             _console.WriteLine("Please enter the cargo capacity:");
-            int cargoCapacity = int.TryParse(_console.ReadLine(), out var parsedYear) ? parsedYear : 0;
+            int cargoCapacity = int.TryParse(_console.ReadLine(), out var parsedCargoCapacity) ? parsedCargoCapacity : 0;
             return cargoCapacity;
         }
 

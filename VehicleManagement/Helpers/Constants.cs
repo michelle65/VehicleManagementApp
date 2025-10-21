@@ -1,4 +1,4 @@
-﻿namespace VehicleManagement
+﻿namespace VehicleManagement.Helpers
 {
     public static class Constants
     {
