@@ -2,12 +2,12 @@
 {
     public interface IConsoleWrapper
     {
+        void Clear();
         void Write(string message);
         void WriteLine();
-        void SetForegroundColor(ConsoleColor color);
         void WriteLine(string message);
+        void SetForegroundColor(ConsoleColor color);
         string ReadLine();
         void ResetColor();
-        void Clear();
     }
 }

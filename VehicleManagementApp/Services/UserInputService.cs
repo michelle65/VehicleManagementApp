@@ -16,10 +16,10 @@ namespace VehicleManagement.Services
             _console.WriteLine("2.Add new motorcycle.");
             _console.WriteLine("3.Add new truck.");
             _console.WriteLine("4.Add new electric car.");
-            _console.WriteLine("5.List vehices (with filter)");
-            _console.WriteLine("6.Check vehicles ( with filter)");
-            _console.WriteLine("7.Save to JSON");
-            _console.WriteLine("8.Load to JSON");
+            _console.WriteLine("5.List vehices (with filter).");
+            _console.WriteLine("6.Check vehicles.");
+            _console.WriteLine("7.Save to JSON.");
+            _console.WriteLine("8.Load to JSON.");
             _console.WriteLine("*******************");
         }
         public void InputVehicleComponents(out string brand, out string model, out int year)
