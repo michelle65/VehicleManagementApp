@@ -57,6 +57,7 @@ while (choice != 0)
     catch (Exception ex)
     {
         console.WriteLine(ex.Message);
+        console.WriteLine("Invalid input. Please enter a number between 0-8.");
     }
 }
 

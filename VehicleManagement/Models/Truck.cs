@@ -12,7 +12,7 @@ namespace VehicleManagement.Models
         }
         public override string StartEngine()
         {
-            return "The truck engine drives on the road.";
+            return "The truck engine rumbles to life.";
         }
         public void Refuel()
         {

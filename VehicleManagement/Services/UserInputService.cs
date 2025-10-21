@@ -30,7 +30,7 @@ namespace VehicleManagement.Services
             _console.WriteLine("Please enter the model:");
             model = _console.ReadLine();
             _console.WriteLine("Please enter the year:");
-            year = Convert.ToInt32(_console.ReadLine());
+            year = int.TryParse(_console.ReadLine(), out var parsedYear) ? parsedYear : 0;
             _console.WriteLine();
         }
 
@@ -39,7 +39,7 @@ namespace VehicleManagement.Services
 
             _console.WriteLine("*******************");
             _console.WriteLine("Please enter the cargo capacity:");
-            int cargoCapacity = Convert.ToInt32(_console.ReadLine());
+            int cargoCapacity = int.TryParse(_console.ReadLine(), out var parsedYear) ? parsedYear : 0;
             return cargoCapacity;
         }
 
@@ -47,7 +47,7 @@ namespace VehicleManagement.Services
         {
             _console.WriteLine("*******************");
             _console.WriteLine("Has sidecar? (true or false): ");
-            bool hasSidecar = Convert.ToBoolean(_console.ReadLine());
+            bool hasSidecar = bool.TryParse(_console.ReadLine(), out var parsedValueSidecar) ? parsedValueSidecar : false;
             return hasSidecar;
         }
 
@@ -55,14 +55,14 @@ namespace VehicleManagement.Services
         {
             _console.WriteLine("*******************");
             _console.WriteLine("Please enter number of doors: ");
-            int numberOfDoors = Convert.ToInt32(_console.ReadLine());
+            int numberOfDoors = int.TryParse(_console.ReadLine(), out var parsedNumberOfCars) ? parsedNumberOfCars : 4;
             return numberOfDoors;
         }
         public int InputElectricRange()
         {
             _console.WriteLine("*******************");
             _console.WriteLine("Please enter battery range (km):");
-            int batteryRange = Convert.ToInt32(_console.ReadLine());
+            int batteryRange = int.TryParse(_console.ReadLine(), out var parsedBatteryRange) ? parsedBatteryRange : 0;
             return batteryRange;
         }
         public void NoValidOption()
