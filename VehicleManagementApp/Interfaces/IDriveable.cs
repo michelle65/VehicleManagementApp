@@ -1,7 +1,7 @@
 ﻿namespace VehicleManagement.Interfaces
 {
-     public interface IDriveable
+    public interface IDriveable
     {
-        public void Drive();
+        void Drive();
     }
 }

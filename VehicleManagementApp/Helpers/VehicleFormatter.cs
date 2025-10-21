@@ -6,7 +6,7 @@ namespace VehicleManagementApp.Helpers
     {
         public static string FormatVehicleLine(Vehicle v) => v switch
         {
-            ElectricCar ec => $"[ElectricCar] {ec.Brand} {ec.Model} {ec.Year} | Doors: {ec.NumberOfDoors} | Range: {ec.BatteryRangeKm} km",
+            ElectricCar e => $"[ElectricCar] {e.Brand} {e.Model} {e.Year} | Doors: {e.NumberOfDoors} | Range: {e.BatteryRangeKm} km",
             Truck t => $"[Truck] {t.Brand} {t.Model} {t.Year} | Capacity: {t.CargoCapacity}",
             Motorcycle m => $"[Motorcycle] {m.Brand} {m.Model} {m.Year} | Sidecar: {m.HasSidecar}",
             Car c => $"[Car] {c.Brand} {c.Model} {c.Year} | Doors: {c.NumberOfDoors}",
