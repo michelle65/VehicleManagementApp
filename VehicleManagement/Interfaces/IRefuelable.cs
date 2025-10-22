@@ -2,6 +2,6 @@
 {
     public interface IRefuelable
     {
-        void Refuel();
+        public void Refuel();
     }
 }

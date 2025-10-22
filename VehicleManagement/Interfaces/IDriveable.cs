@@ -2,6 +2,6 @@
 {
     public interface IDriveable
     {
-        void Drive();
+        public void Drive();
     }
 }
