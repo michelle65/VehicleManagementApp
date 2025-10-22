@@ -9,10 +9,12 @@ namespace VehicleManagement.Models
     [JsonDerivedType(typeof(ElectricCar), "electric")]
     public abstract class Vehicle
     {
-        public string Brand { get; set; }
-        public string Model { get; set; }
-        public int Year { get; set; }
+        public required string Brand { get; set; }
+        public required string Model { get; set; }
+        public required int Year { get; set; }
+
         protected Vehicle() { }
+
         public virtual string StartEngine()
         {
             return "The vehicle engine starts.";

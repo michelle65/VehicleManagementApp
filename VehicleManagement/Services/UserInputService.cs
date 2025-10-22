@@ -5,27 +5,12 @@ namespace VehicleManagement.Services
     public class UserInputService : IUserInputService
     {
         private readonly IConsoleWrapper _console;
+
         public UserInputService(IConsoleWrapper console)
         {
             _console = console;
         }
 
-        public void PrintMenu()
-        {
-            _console.WriteLine("*******************");
-            _console.WriteLine("**** - Welcome to the sample service ! ***");
-            _console.WriteLine("Please select an operation.");
-            _console.WriteLine("0.Exit program.");
-            _console.WriteLine("1.Add new car.");
-            _console.WriteLine("2.Add new motorcycle.");
-            _console.WriteLine("3.Add new truck.");
-            _console.WriteLine("4.Add new electric car.");
-            _console.WriteLine("5.List vehices (with filter).");
-            _console.WriteLine("6.Check vehicles.");
-            _console.WriteLine("7.Save to JSON.");
-            _console.WriteLine("8.Load to JSON.");
-            _console.WriteLine("*******************");
-        }
         public void InputVehicleComponents(out string brand, out string model, out int year)
         {
             _console.WriteLine("*******************");
@@ -62,6 +47,7 @@ namespace VehicleManagement.Services
             int numberOfDoors = int.TryParse(_console.ReadLine(), out var parsedNumberOfCars) ? parsedNumberOfCars : 4;
             return numberOfDoors;
         }
+
         public int InputElectricRange()
         {
             _console.WriteLine("*******************");
@@ -69,6 +55,24 @@ namespace VehicleManagement.Services
             int batteryRange = int.TryParse(_console.ReadLine(), out var parsedBatteryRange) ? parsedBatteryRange : 0;
             return batteryRange;
         }
+
+        public void PrintMenu()
+        {
+            _console.WriteLine("*******************");
+            _console.WriteLine("**** - Welcome to the sample service ! ***");
+            _console.WriteLine("Please select an operation.");
+            _console.WriteLine("0.Exit program.");
+            _console.WriteLine("1.Add new car.");
+            _console.WriteLine("2.Add new motorcycle.");
+            _console.WriteLine("3.Add new truck.");
+            _console.WriteLine("4.Add new electric car.");
+            _console.WriteLine("5.List vehicles (with filter).");
+            _console.WriteLine("6.Check vehicles.");
+            _console.WriteLine("7.Save vehicles to json file.");
+            _console.WriteLine("8.Load vehicles to json file.");
+            _console.WriteLine("*******************");
+        }
+
         public void NoValidOption()
         {
             _console.WriteLine("*******************");

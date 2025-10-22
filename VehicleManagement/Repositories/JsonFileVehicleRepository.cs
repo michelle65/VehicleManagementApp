@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using VehicleManagement.DTO_s;
+using VehicleManagement.Dtos;
 using VehicleManagement.Helpers;
 using VehicleManagement.Interfaces;
 using VehicleManagement.Models;
@@ -42,7 +42,8 @@ namespace VehicleManagement.Repositories
 
         public void Save(IEnumerable<Vehicle> vehicles)
         {
-            var snapshot = vehicles.Select(VehicleMapper.ToDto).ToList();
+            var snapshot = vehicles.ToList();
+
             var json = JsonSerializer.Serialize(snapshot, _json);
 
             var tmp = _dataFile + ".tmp";
@@ -51,7 +52,6 @@ namespace VehicleManagement.Repositories
             File.Move(tmp, _dataFile, overwrite: true);
 
         }
-
 
         private static string ResolveDataDirectory()
         {

@@ -1,4 +1,4 @@
-﻿namespace VehicleManagement.DTO_s
+﻿namespace VehicleManagement.Dtos
 {
     public enum VehicleType
     {

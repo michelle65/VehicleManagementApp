@@ -12,21 +12,14 @@ namespace VehicleManagement.Services
         private readonly IConsoleWrapper _console;
         private readonly IVehicleRepository _repo;
 
-        public VehicleService(
-            List<Vehicle> vehicles,
-            IUserInputService userInputService,
-            IConsoleWrapper console,
-            IVehicleRepository? repository = null)
+        public VehicleService(List<Vehicle> vehicles, IUserInputService userInputService, IConsoleWrapper console, IVehicleRepository? repository = null)
         {
             _vehicles = vehicles ?? throw new ArgumentNullException(nameof(vehicles));
             _userInputService = userInputService ?? throw new ArgumentNullException(nameof(userInputService));
             _console = console ?? throw new ArgumentNullException(nameof(console));
-
             _repo = repository ?? new JsonFileVehicleRepository();
 
-            var loaded = _repo.LoadOrSeed(out var info);
-            ReplaceVehicles(loaded);
-            _console.WriteLine(info);
+            EnsureVehiclesLoaded();
         }
 
         public void AddNewCar()
@@ -58,6 +51,17 @@ namespace VehicleManagement.Services
             _vehicles.Add(new ElectricCar { Brand = brand, Model = model, Year = year, NumberOfDoors = doors, BatteryRangeKm = range });
         }
 
+        public void CheckVehicles()
+        {
+            _console.WriteLine("*** Vehicle check ***");
+            foreach (var vehicle in _vehicles)
+            {
+                _console.WriteLine(vehicle.StartEngine());
+                if (vehicle is IDriveable drivable) drivable.Drive();
+            }
+            _console.WriteLine("*** Vehicle checks completed ***");
+        }
+
         public void PrintAllVehicles()
         {
             _console.WriteLine("*** * ***");
@@ -80,26 +84,10 @@ namespace VehicleManagement.Services
             }
 
             _console.WriteLine("*** Vehicles ***");
-            foreach (var v in filtered)
-                _console.WriteLine(VehicleFormatter.FormatVehicleLine(v));
-        }
-
-        public void CheckVehicles()
-        {
-            _console.WriteLine("*** Vehicle check ***");
-            foreach (var v in _vehicles)
+            foreach (var vehicle in filtered)
             {
-                _console.WriteLine(v.StartEngine());
-                if (v is IDriveable d) d.Drive();
+                _console.WriteLine(VehicleFormatter.FormatVehicleLine(vehicle));
             }
-            _console.WriteLine("*** Vehicle checks completed ***");
-        }
-
-        public void SaveJson()
-        {
-            _repo.Save(_vehicles);
-            _console.WriteLine("Vehicle(s) saved!");
-            _console.WriteLine();
         }
 
         public void LoadJson()
@@ -110,14 +98,28 @@ namespace VehicleManagement.Services
 
             _console.WriteLine("*** Vehicles (after load) ***");
             if (_vehicles.Count == 0) _console.WriteLine("No vehicles in the system yet.");
-            foreach (var v in _vehicles)
-                _console.WriteLine(VehicleFormatter.FormatVehicleLine(v));
+            foreach (var vehicle in _vehicles)
+                _console.WriteLine(VehicleFormatter.FormatVehicleLine(vehicle));
         }
 
-        private void ReplaceVehicles(IEnumerable<Vehicle> src)
+        public void SaveJson()
+        {
+            _repo.Save(_vehicles);
+            _console.WriteLine("Vehicle(s) saved!");
+            _console.WriteLine();
+        }
+
+        private void ReplaceVehicles(IEnumerable<Vehicle> vehicles)
         {
             _vehicles.Clear();
-            _vehicles.AddRange(src);
+            _vehicles.AddRange(vehicles);
+        }
+
+        private void EnsureVehiclesLoaded()
+        {
+            var loaded = _repo.LoadOrSeed(out var info);
+            ReplaceVehicles(loaded);
+            _console.WriteLine(info);
         }
     }
 }
