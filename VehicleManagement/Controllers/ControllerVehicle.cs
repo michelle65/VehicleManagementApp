@@ -23,7 +23,7 @@ namespace VehicleManagement.Controllers
                 try
                 {
                     _userInputService.PrintMenu();
-                    choice = Convert.ToInt32(_console.ReadLine());
+                    choice = int.TryParse(_console.ReadLine(), out int parsedChoice) ? parsedChoice: -1;
 
                     if (choice == 0)
                     {

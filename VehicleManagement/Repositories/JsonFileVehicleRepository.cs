@@ -42,14 +42,12 @@ namespace VehicleManagement.Repositories
 
         public void Save(IEnumerable<Vehicle> vehicles)
         {
-            var snapshot = vehicles.ToList();
+            var jsonFile = JsonSerializer.Serialize(vehicles.ToList(), _json);
 
-            var json = JsonSerializer.Serialize(snapshot, _json);
+            var temporaryFile = _dataFile + ".tmp";
+            File.WriteAllText(temporaryFile, jsonFile);
 
-            var tmp = _dataFile + ".tmp";
-            File.WriteAllText(tmp, json);
-
-            File.Move(tmp, _dataFile, overwrite: true);
+            File.Move(temporaryFile, _dataFile, overwrite: true);
 
         }
 

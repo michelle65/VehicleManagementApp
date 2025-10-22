@@ -15,20 +15,20 @@ namespace VehicleManagement.Services
         {
             _console.WriteLine("*******************");
             _console.WriteLine("Please enter the brand:");
-            brand = _console.ReadLine();
+            brand = string.IsNullOrWhiteSpace(_console.ReadLine()) ? "Unknown brand" : _console.ReadLine(); 
             _console.WriteLine("Please enter the model:");
-            model = _console.ReadLine();
+            model = string.IsNullOrWhiteSpace(_console.ReadLine()) ? "Unknown model": _console.ReadLine();
             _console.WriteLine("Please enter the year:");
-            year = int.TryParse(_console.ReadLine(), out var parsedYear) ? parsedYear : 0;
+            year = int.TryParse(_console.ReadLine(), out var parsedYear) ? parsedYear : 2000;
             _console.WriteLine();
         }
 
-        public int InputTruckComponent()
+        public decimal InputTruckComponent()
         {
 
             _console.WriteLine("*******************");
             _console.WriteLine("Please enter the cargo capacity:");
-            int cargoCapacity = int.TryParse(_console.ReadLine(), out var parsedCargoCapacity) ? parsedCargoCapacity : 0;
+            decimal cargoCapacity = decimal.TryParse(_console.ReadLine(), out var parsedCargoCapacity) ? parsedCargoCapacity : 0;
             return cargoCapacity;
         }
 
