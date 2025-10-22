@@ -5,7 +5,11 @@ namespace VehicleManagement.Services
     public class UserInputService : IUserInputService
     {
         private readonly IConsoleWrapper _console;
-        public UserInputService(IConsoleWrapper console) => _console = console;
+        public UserInputService(IConsoleWrapper console)
+        {
+            _console = console;
+        }
+
         public void PrintMenu()
         {
             _console.WriteLine("*******************");
