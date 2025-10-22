@@ -1,7 +1,5 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using VehicleManagement.Dtos;
-using VehicleManagement.Helpers;
 using VehicleManagement.Interfaces;
 using VehicleManagement.Models;
 using VehicleManagement.Seeder;
@@ -33,6 +31,8 @@ namespace VehicleManagement.Repositories
                 info = "Loaded existing data.";
                 return loaded;
             }
+
+            Console.WriteLine($"Vehicles failed to load, reason {reason}");
 
             var seed = VehicleSeeder.SeedInitialVehicles();
             Save(seed);
@@ -74,11 +74,10 @@ namespace VehicleManagement.Repositories
 
             try
             {
-                var dtos = JsonSerializer.Deserialize<List<VehicleDto>>(text, _json) ?? new List<VehicleDto>();
-                var list = dtos.Select(VehicleMapper.FromDto).ToList();
-                if (list.Count == 0) { reason = "empty list"; return false; }
+                var dtos = JsonSerializer.Deserialize<List<Vehicle>>(text, _json) ?? new List<Vehicle>();
+                if (dtos.Count == 0) { reason = "empty list"; return false; }
 
-                vehicles = list;
+                vehicles = dtos;
                 reason = "ok";
                 return true;
             }

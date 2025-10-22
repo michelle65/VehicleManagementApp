@@ -1,4 +1,5 @@
-﻿using VehicleManagement.Interfaces;
+﻿using System;
+using VehicleManagement.Interfaces;
 
 namespace VehicleManagement.Wrappers
 {

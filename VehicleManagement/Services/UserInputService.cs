@@ -15,9 +15,11 @@ namespace VehicleManagement.Services
         {
             _console.WriteLine("*******************");
             _console.WriteLine("Please enter the brand:");
-            brand = string.IsNullOrWhiteSpace(_console.ReadLine()) ? "Unknown brand" : _console.ReadLine(); 
+            brand = _console.ReadLine();
+            brand = string.IsNullOrWhiteSpace(brand) ? "Unknown brand" : brand;
             _console.WriteLine("Please enter the model:");
-            model = string.IsNullOrWhiteSpace(_console.ReadLine()) ? "Unknown model": _console.ReadLine();
+            model = _console.ReadLine();
+            model = string.IsNullOrWhiteSpace(model) ? "Unknown model" : model;
             _console.WriteLine("Please enter the year:");
             year = int.TryParse(_console.ReadLine(), out var parsedYear) ? parsedYear : 2000;
             _console.WriteLine();
