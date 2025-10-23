@@ -1,7 +1,6 @@
 ﻿using VehicleManagement.Helpers;
 using VehicleManagement.Interfaces;
 using VehicleManagement.Models;
-using VehicleManagement.Repositories;
 
 namespace VehicleManagement.Services
 {

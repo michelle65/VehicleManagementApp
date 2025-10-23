@@ -55,11 +55,11 @@ namespace VehicleManagement.Services
             return numberOfDoors;
         }
 
-        public decimal InputElectricRange()
+        public int InputElectricRange()
         {
             _console.WriteLine("*******************");
             _console.WriteLine("Please enter battery range (km):");
-            decimal batteryRange = decimal.TryParse(_console.ReadLine(), out var parsedBatteryRange) ? parsedBatteryRange : 0;
+            int batteryRange = int.TryParse(_console.ReadLine(), out var parsedBatteryRange) ? parsedBatteryRange : 0;
            
             return batteryRange;
         }
@@ -87,5 +87,6 @@ namespace VehicleManagement.Services
             _console.WriteLine("Invalid option.");
             _console.WriteLine("*******************");
         }
+
     }
 }
