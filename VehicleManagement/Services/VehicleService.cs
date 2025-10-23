@@ -12,12 +12,12 @@ namespace VehicleManagement.Services
         private readonly IConsoleWrapper _console;
         private readonly IVehicleRepository _repo;
 
-        public VehicleService(List<Vehicle> vehicles, IUserInputService userInputService, IConsoleWrapper console, IVehicleRepository? repository = null)
+        public VehicleService(List<Vehicle> vehicles, IUserInputService userInputService, IConsoleWrapper console, IVehicleRepository repository = null)
         {
-            _vehicles = vehicles ?? throw new ArgumentNullException(nameof(vehicles));
-            _userInputService = userInputService ?? throw new ArgumentNullException(nameof(userInputService));
-            _console = console ?? throw new ArgumentNullException(nameof(console));
-            _repo = repository ?? new JsonFileVehicleRepository();
+            _vehicles = vehicles ;
+            _userInputService = userInputService;
+            _console = console;
+            _repo = repository ;
 
             EnsureVehiclesLoaded();
         }
@@ -90,7 +90,7 @@ namespace VehicleManagement.Services
             }
         }
 
-        public void LoadJson()
+        public void LoadVehicles()
         {
             var loaded = _repo.LoadOrSeed(out var msg);
             ReplaceVehicles(loaded);
@@ -102,7 +102,7 @@ namespace VehicleManagement.Services
                 _console.WriteLine(VehicleFormatter.FormatVehicleLine(vehicle));
         }
 
-        public void SaveJson()
+        public void SaveVehicles()
         {
             _repo.Save(_vehicles);
             _console.WriteLine("Vehicle(s) saved!");

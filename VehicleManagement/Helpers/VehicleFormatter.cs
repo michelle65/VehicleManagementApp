@@ -6,11 +6,11 @@ namespace VehicleManagement.Helpers
     {
         public static string FormatVehicleLine(Vehicle vehicle) => vehicle switch
         {
-            ElectricCar e => $"[ElectricCar] {e.Brand} {e.Model} {e.Year} | Doors: {e.NumberOfDoors} | Range: {e.BatteryRangeKm} km",
-            Truck t => $"[Truck] {t.Brand} {t.Model} {t.Year} | Capacity: {t.CargoCapacity}",
-            Motorcycle m => $"[Motorcycle] {m.Brand} {m.Model} {m.Year} | Sidecar: {m.HasSidecar}",
-            Car c => $"[Car] {c.Brand} {c.Model} {c.Year} | Doors: {c.NumberOfDoors}",
-            _ => $"[Vehicle] {vehicle.Brand} {vehicle.Model} {vehicle.Year}"
+            ElectricCar e => $"[ElectricCar] | {e.Brand} | {e.Model} | {e.Year} | Doors: {e.NumberOfDoors} | Range: {e.BatteryRangeKm} km",
+            Truck t => $"[Truck] | {t.Brand} | {t.Model} | {t.Year} | Capacity: {t.CargoCapacity}",
+            Motorcycle m => $"[Motorcycle] | {m.Brand} | {m.Model} | {m.Year} | Sidecar: {m.HasSidecar}",
+            Car c => $"[Car] | {c.Brand} | {c.Model} | {c.Year} | Doors: {c.NumberOfDoors}",
+            _ => $"[Vehicle] | {vehicle.Brand} | {vehicle.Model} | {vehicle.Year}"
         };
 
         public static string NoResultsMessage(char optionVehicle) => optionVehicle switch

@@ -38,8 +38,8 @@ namespace VehicleManagement.Controllers
                         case 4: _vehicleService.AddNewElectricCar(); break;
                         case 5: _vehicleService.PrintAllVehicles(); break;
                         case 6: _vehicleService.CheckVehicles(); break;
-                        case 7: _vehicleService.SaveJson(); break;
-                        case 8: _vehicleService.LoadJson(); break;
+                        case 7: _vehicleService.SaveVehicles(); break;
+                        case 8: _vehicleService.LoadVehicles(); break;
                         default: _userInputService.NoValidOption(); break;
                     }
                 }

@@ -8,8 +8,8 @@
         public void AddNewElectricCar();
         public void CheckVehicles();
         public void PrintAllVehicles();
-        public void SaveJson();
-        public void LoadJson();
+        public void SaveVehicles();
+        public void LoadVehicles();
 
     }
 }
