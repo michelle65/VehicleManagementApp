@@ -11,12 +11,13 @@ namespace VehicleManagement.Services
         private readonly IConsoleWrapper _console;
         private readonly IVehicleRepository _repo;
 
-        public VehicleService(List<Vehicle> vehicles, IUserInputService userInputService, IConsoleWrapper console, IVehicleRepository repository = null)
+
+        public VehicleService(List<Vehicle> vehicles, IUserInputService userInputService, IConsoleWrapper console, IVehicleRepository repository)
         {
-            _vehicles = vehicles ;
+            _vehicles = vehicles;
             _userInputService = userInputService;
             _console = console;
-            _repo = repository ;
+            _repo = repository;
 
             EnsureVehiclesLoaded();
         }
@@ -108,17 +109,18 @@ namespace VehicleManagement.Services
             _console.WriteLine();
         }
 
-        private void ReplaceVehicles(IEnumerable<Vehicle> vehicles)
-        {
-            _vehicles.Clear();
-            _vehicles.AddRange(vehicles);
-        }
-
+     
         private void EnsureVehiclesLoaded()
         {
             var loaded = _repo.LoadOrSeed(out var info);
             ReplaceVehicles(loaded);
             _console.WriteLine(info);
+        }
+
+        private void ReplaceVehicles(IEnumerable<Vehicle> vehicles)
+        {
+            _vehicles.Clear();
+            _vehicles.AddRange(vehicles);
         }
     }
 }

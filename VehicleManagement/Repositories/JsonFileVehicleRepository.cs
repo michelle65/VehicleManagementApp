@@ -32,10 +32,10 @@ namespace VehicleManagement.Repositories
             }
             else
             {
-                var en = directory ?? _configuration["DataSettings:BaseDirectory"];
-                if (!string.IsNullOrWhiteSpace(en))
+                var configuredDirectory = directory ?? _configuration["BaseDirectory"];
+                if (!string.IsNullOrWhiteSpace(configuredDirectory))
                 {
-                    baseDirectory = en;
+                    baseDirectory = configuredDirectory;
                 }
                 else
                 {
