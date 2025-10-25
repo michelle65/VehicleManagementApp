@@ -2,14 +2,14 @@
 {
     public interface IVehicleService
     {
-        void AddNewCar();
-        void AddNewTruck();
-        void AddNewMotorcycle();
-        void AddNewElectricCar();
-        void CheckVehicles();
-        void PrintAllVehicles();
-        void SaveJson();
-        void LoadJson();
+        public void AddNewCar();
+        public void AddNewTruck();
+        public void AddNewMotorcycle();
+        public void AddNewElectricCar();
+        public void CheckVehicles();
+        public void PrintAllVehicles();
+        public void SaveVehicles();
+        public void LoadVehicles();
 
     }
 }

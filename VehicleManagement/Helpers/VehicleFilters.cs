@@ -4,13 +4,13 @@ namespace VehicleManagement.Helpers
 {
     public static class VehicleFilters
     {
-        public static IEnumerable<Vehicle> FilterByOption(IEnumerable<Vehicle> source, char option) => option switch
+        public static IEnumerable<Vehicle> FilterByOption(IEnumerable<Vehicle> vehicles, char categoryCode) => categoryCode switch
         {
-            'C' => source.OfType<Car>(),
-            'M' => source.OfType<Motorcycle>(),
-            'T' => source.OfType<Truck>(),
-            'E' => source.OfType<ElectricCar>(),
-            _ => source
+            'C' => vehicles.OfType<Car>(),
+            'M' => vehicles.OfType<Motorcycle>(),
+            'T' => vehicles.OfType<Truck>(),
+            'E' => vehicles.OfType<ElectricCar>(),
+            _ => vehicles
         };
     }
 }
