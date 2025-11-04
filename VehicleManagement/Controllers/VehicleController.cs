@@ -2,13 +2,13 @@
 
 namespace VehicleManagement.Controllers
 {
-    public class ControllerVehicle
+    public class VehicleController
     {
         private readonly IConsoleWrapper _console;
         private readonly IUserInputService _userInputService;
         private readonly IVehicleService _vehicleService;
 
-        public ControllerVehicle(IConsoleWrapper console, IUserInputService userInputService, IVehicleService vehicleService)
+        public VehicleController(IConsoleWrapper console, IUserInputService userInputService, IVehicleService vehicleService)
         {
             _console = console;
             _userInputService = userInputService;

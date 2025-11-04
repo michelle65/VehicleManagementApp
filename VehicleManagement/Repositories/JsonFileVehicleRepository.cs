@@ -20,31 +20,16 @@ namespace VehicleManagement.Repositories
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         };
 
-        public JsonFileVehicleRepository(IConfiguration configuration, string? directory = null)
+        public JsonFileVehicleRepository(IConfiguration configuration)
         {
             _configuration = configuration;
 
-            string baseDirectory;
+            string baseDirectory = _configuration["BaseDirectory"];
 
-            if (!string.IsNullOrEmpty(directory))
-            {
-                baseDirectory = directory;
-            }
-            else
-            {
-                var configuredDirectory = directory ?? _configuration["BaseDirectory"];
-                if (!string.IsNullOrWhiteSpace(configuredDirectory))
-                {
-                    baseDirectory = configuredDirectory;
-                }
-                else
-                {
-                    var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData); 
-                    baseDirectory = !string.IsNullOrEmpty(appData)
-                                    ? Path.Combine(appData, "VehicleManagement")
-                                    : AppContext.BaseDirectory;
-                }
-            }
+            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            baseDirectory = !string.IsNullOrEmpty(appData)
+                            ? Path.Combine(appData, "VehicleManagement")
+                            : AppContext.BaseDirectory;
             Directory.CreateDirectory(baseDirectory);
             _dataFileVehicles = Path.Combine(baseDirectory, DefaultFileName);
         }

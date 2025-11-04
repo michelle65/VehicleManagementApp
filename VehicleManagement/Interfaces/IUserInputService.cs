@@ -9,6 +9,5 @@
         public int InputElectricRange();
         public int InputCarComponent();
         public void NoValidOption();
-
     }
 }

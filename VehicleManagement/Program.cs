@@ -17,5 +17,5 @@ IConfiguration config = new ConfigurationBuilder()
 IVehicleRepository repository = new JsonFileVehicleRepository(config);
 IVehicleService vehicleService = new VehicleService(vehicles, userInputService, console,repository);
 
-var controller = new ControllerVehicle(console, userInputService, vehicleService);
+var controller = new VehicleController(console, userInputService, vehicleService);
 controller.RunService();
