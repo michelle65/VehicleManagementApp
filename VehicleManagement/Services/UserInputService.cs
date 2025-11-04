@@ -87,5 +87,6 @@ namespace VehicleManagement.Services
             _console.WriteLine("Invalid option.");
             _console.WriteLine("*******************");
         }
+
     }
 }
