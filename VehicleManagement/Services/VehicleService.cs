@@ -11,7 +11,6 @@ namespace VehicleManagement.Services
         private readonly IConsoleWrapper _console;
         private readonly IVehicleRepository _repo;
 
-
         public VehicleService(List<Vehicle> vehicles, IUserInputService userInputService, IConsoleWrapper console, IVehicleRepository repository)
         {
             _vehicles = vehicles;
@@ -109,7 +108,6 @@ namespace VehicleManagement.Services
             _console.WriteLine();
         }
 
-     
         private void EnsureVehiclesLoaded()
         {
             var loaded = _repo.LoadOrSeed(out var info);
